@@ -32,10 +32,10 @@ anilloUnico = UnAnillo { peso = 12, frase = "Un Anillo para gobernarlos a todos.
 
 -- Otro hobbit y su anilo
 aradun :: Hobbit
-aradun = UnHobbit { nombre = "Aradun", estatura = 100, salud = 15, fuerza = 82, deComarca = False, anillo = anilloDeSam }
+aradun = UnHobbit { nombre = "Aradun", estatura = 100, salud = 15, fuerza = 82, deComarca = False, anillo = anilloDeAradun }
 
-anilloDeSam :: Anillo
-anilloDeSam = UnAnillo { peso = 5, frase = "No soy hombre de plegarias, pero si estas en el cielo, Salvame Superman." }
+anilloDeAradun :: Anillo
+anilloDeAradun = UnAnillo { peso = 5, frase = "No soy hombre de plegarias, pero si estas en el cielo, Salvame Superman." }
 
 -- Otro anillo
 anilloExtranio :: Anillo
@@ -43,7 +43,7 @@ anilloExtranio = UnAnillo { peso = 10, frase = "Actuamos en las sombras, para se
 
 -- Calcula poder de anillo
 poderDeAnillo :: Anillo -> Int
-poderDeAnillo anillo = (peso anillo) * (length (frase anillo))
+poderDeAnillo anillo = peso anillo * length(frase anillo)
 
 -- Calcula resistencia de un hobbit de la comarca
 calcPoderHobbitComarca :: Hobbit -> Int
@@ -59,7 +59,7 @@ comienzaConF hobbit = head(nombre hobbit) == 'F'
 
 -- Determina el poder del anillo de un hobbit
 poderAnilloDeHobbit :: Hobbit -> Int
-poderAnilloDeHobbit hobbit = (peso (anillo hobbit)) * (length (frase (anillo hobbit)))
+poderAnilloDeHobbit = poderDeAnillo.anillo
 
 -- Determina la resistencia total de un hobbit 
 poderDeHobbit :: Hobbit -> Int
